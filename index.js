@@ -27,8 +27,18 @@ function req(method, apiUrl, data, callback) {
   });
 }
 
-Openfisca.prototype.entities = function(parameters, callback) {
+Openfisca.prototype.entities = function(params, callback) {
   var url = apiUrl + 'entities';
+  req('GET', url, null, function(error, result) {
+    if (error) return callback(error);
+    else return callback(null, result);
+  });
+}
+
+Openfisca.prototype.graph = function(params, callback) {
+  var url = apiUrl + 'graph?';
+  if (params && params.context) url = (url.substr(url.length-1, 1) === '?' ? url + 'context=' + params.context : url + '&context=' + params.context);
+  if (params && params.variable) url = (url.substr(url.length-1, 1) === '?' ? url + 'variable=' + params.variable : url + '&variable=' + params.variable);
   req('GET', url, null, function(error, result) {
     if (error) return callback(error);
     else return callback(null, result);
