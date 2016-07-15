@@ -1,5 +1,5 @@
 var request = require('request');
-var apiUrl = 'http://api.openfisca.fr/';
+var apiUrl = 'http://api.openfisca.fr/api/1/';
 
 function Openfisca() {
   this.apiUrl = apiUrl;
