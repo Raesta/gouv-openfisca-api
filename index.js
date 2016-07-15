@@ -45,4 +45,13 @@ Openfisca.prototype.graph = function(params, callback) {
   });
 }
 
+Openfisca.prototype.parameters = function(params, callback) {
+  var url = apiUrl + 'parameters?';
+  if (params && params.name) url = (url.substr(url.length-1, 1) === '?' ? url + 'name=' + params.name : url + '&name=' + params.name);
+  req('GET', url, null, function(error, result) {
+    if (error) return callback(error);
+    else return callback(null, result);
+  });
+}
+
 module.exports = Openfisca;
