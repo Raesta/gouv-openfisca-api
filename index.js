@@ -62,4 +62,12 @@ Openfisca.prototype.reforms = function(params, callback) {
   });
 }
 
+Openfisca.prototype.variables = function(params, callback) {
+  var url  = apiUrl + 'variables?';
+  req('GET', url, null, function(error, result) {
+    if (error) return callback(error);
+    else return callback(null, result);
+  });
+}
+
 module.exports = Openfisca;
