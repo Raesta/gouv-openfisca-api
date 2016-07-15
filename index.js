@@ -70,4 +70,12 @@ Openfisca.prototype.variables = function(params, callback) {
   });
 }
 
+Openfisca.prototype.swagger = function(params, callback) {
+  var url = apiUrl + 'swagger?';
+  req('GET', url, null, function(error, result) {
+    if (error) return callback(error);
+    else return callback(null, result);
+  });
+}
+
 module.exports = Openfisca;
