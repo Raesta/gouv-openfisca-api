@@ -27,4 +27,12 @@ function req(method, apiUrl, data, callback) {
   });
 }
 
+Openfisca.prototype.entities = function(parameters, callback) {
+  var url = apiUrl + 'entities';
+  req('GET', url, null, function(error, result) {
+    if (error) return callback(error);
+    else return callback(null, result);
+  });
+}
+
 module.exports = Openfisca;
