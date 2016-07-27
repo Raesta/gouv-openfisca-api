@@ -1,6 +1,6 @@
 {
   "name": "gouv-openfisca-api",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "gouv-openfisca-api",
   "main": "index.js",
   "scripts": {
