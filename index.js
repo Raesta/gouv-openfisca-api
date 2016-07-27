@@ -18,10 +18,10 @@ function req(method, apiUrl, data, callback) {
         return callback(null, JSON.parse(body));
         break;
       case 400:
-        return callback('BAD_REQUEST');
+        return callback(JSON.parse(body));
         break;
       case 404:
-        return callback('NOT_FOUND');
+        return callback(JSON.parse(body));
         break;
     }
   });
