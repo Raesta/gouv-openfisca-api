@@ -70,6 +70,14 @@ Openfisca.prototype.reforms = function(params, callback) {
   });
 }
 
+Openfisca.prototype.simulate = function(params, callback) {
+  var url = apiUrl + 'simulate';
+  req('POST', url, params.data, function(error, result) {
+    if (error) return callback(error);
+    else return callback(null, result);
+  });
+}
+
 Openfisca.prototype.variables = function(params, callback) {
   var url  = apiUrl + 'variables?';
   req('GET', url, null, function(error, result) {
