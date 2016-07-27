@@ -27,6 +27,14 @@ function req(method, apiUrl, data, callback) {
   });
 }
 
+Openfisca.prototype.calculate = function(params, callback) {
+  var url = apiUrl + 'calculate';
+  req('POST', url, params.data, function(error, result) {
+    if (error) return callback(error);
+    else return callback(null, result);
+  });
+}
+
 Openfisca.prototype.entities = function(params, callback) {
   var url = apiUrl + 'entities';
   req('GET', url, null, function(error, result) {
