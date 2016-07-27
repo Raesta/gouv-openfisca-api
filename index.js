@@ -29,7 +29,7 @@ function req(method, apiUrl, data, callback) {
 
 Openfisca.prototype.calculate = function(params, callback) {
   var url = apiUrl + 'calculate';
-  req('POST', url, params.data, function(error, result) {
+  req('POST', url, params, function(error, result) {
     if (error) return callback(error);
     else return callback(null, result);
   });
@@ -72,7 +72,7 @@ Openfisca.prototype.reforms = function(params, callback) {
 
 Openfisca.prototype.simulate = function(params, callback) {
   var url = apiUrl + 'simulate';
-  req('POST', url, params.data, function(error, result) {
+  req('POST', url, params, function(error, result) {
     if (error) return callback(error);
     else return callback(null, result);
   });
